@@ -6,6 +6,7 @@
     <title>Aagaman: The New Beginning</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16"></script>
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.64/build/spline-viewer.js"></script>
     <style>
@@ -23,6 +24,7 @@
             --teal: #008080;
             --dark-bg: #0f0f1a;
             --forest-green: #0a2617;
+            --mobile-padding: 1rem;
         }
         
         body {
@@ -31,6 +33,7 @@
             color: white;
             overflow-x: hidden;
             line-height: 1.6;
+            font-size: 16px;
         }
         
         h1, h2, h3 {
@@ -42,11 +45,11 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
         }
         
         section {
-            padding: 4rem 0;
+            padding: 2.5rem 0;
             position: relative;
         }
         
@@ -64,34 +67,38 @@
             background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
             z-index: 1000;
             transition: opacity 1s ease-out;
+            padding: 1rem;
         }
         
         .intro-title {
-            font-size: 5rem;
+            font-size: 2.8rem;
             color: var(--gold);
             text-align: center;
             opacity: 0;
             transform: translateY(50px);
             animation: fadeInUp 1.5s forwards 0.5s;
+            line-height: 1.2;
         }
         
         .intro-subtitle {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: white;
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             opacity: 0;
             animation: fadeIn 1.5s forwards 1.5s;
+            line-height: 1.3;
         }
         
         .intro-invitation {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             color: var(--gold);
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
             max-width: 800px;
             opacity: 0;
             animation: fadeIn 1.5s forwards 2.5s;
+            line-height: 1.5;
         }
         
         @keyframes fadeInUp {
@@ -121,56 +128,61 @@
         
         .content-overlay {
             background: rgba(10, 38, 23, 0.85);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
             backdrop-filter: blur(5px);
             border: 1px solid var(--gold);
         }
         
         /* Landing Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             position: relative;
+            padding: 1rem;
         }
         
         .hero-content {
             max-width: 800px;
             z-index: 1;
+            width: 100%;
         }
         
         .main-title {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
             color: var(--gold);
             font-weight: 700;
+            line-height: 1.2;
         }
         
         .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
             color: white;
+            line-height: 1.3;
         }
         
         .tagline {
             font-family: 'Tangerine', cursive;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
             color: var(--gold);
+            line-height: 1.2;
         }
         
         .btn-know-more {
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.8rem;
             background: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             font-family: 'Cinzel', serif;
@@ -188,16 +200,17 @@
         }
         
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             color: var(--gold);
             text-align: center;
+            line-height: 1.2;
         }
         
         .film-card {
             background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(75, 0, 130, 0.8));
-            border-radius: 15px;
-            padding: 2.5rem;
+            border-radius: 12px;
+            padding: 1.8rem;
             max-width: 600px;
             margin: 0 auto;
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
@@ -227,14 +240,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 1.5rem 0;
-            font-size: 1.2rem;
+            margin: 1.2rem 0;
+            font-size: 1.1rem;
+            flex-wrap: wrap;
         }
         
         .detail-icon {
-            font-size: 2rem;
-            margin-right: 1rem;
+            font-size: 1.8rem;
+            margin-right: 0.8rem;
             color: var(--gold);
+            flex-shrink: 0;
         }
         
         /* Dress Code Section */
@@ -246,13 +261,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         .dress-code-card {
             background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(75, 0, 130, 0.8));
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 1.8rem;
             max-width: 800px;
             margin: 0 auto;
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
@@ -264,38 +279,54 @@
         .dress-emoji-row {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+            gap: 1.2rem;
+            margin: 1.2rem 0;
             flex-wrap: wrap;
         }
         
         .dress-emoji {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             animation: bounce 2s infinite;
         }
         
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-12px); }
         }
         
-        /* Invitation Section */
+        /* Improved Invitation Section */
         .invitation {
             text-align: center;
             position: relative;
         }
         
-        .envelope {
-            width: 300px;
-            height: 200px;
-            background: linear-gradient(135deg, #f5f5f5, #e6e6e6);
+        .invitation-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .invitation-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+        
+        .envelope-container {
+            perspective: 1000px;
             margin: 0 auto 2rem;
-            border-radius: 10px;
+            width: 280px;
+            height: 190px;
+        }
+        
+        .envelope {
+            width: 100%;
+            height: 100%;
             position: relative;
-            cursor: pointer;
             transform-style: preserve-3d;
             transition: transform 0.8s;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
         }
         
         .envelope.flipped {
@@ -309,8 +340,10 @@
             backface-visibility: hidden;
             border-radius: 10px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 1rem;
         }
         
         .envelope-front {
@@ -322,21 +355,17 @@
             background: linear-gradient(135deg, var(--deep-red), var(--rich-purple));
             transform: rotateY(180deg);
             color: white;
-            padding: 1rem;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
         
         .envelope-flap {
             width: 0;
             height: 0;
-            border-left: 150px solid transparent;
-            border-right: 150px solid transparent;
-            border-top: 100px solid #d4af37;
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            border-top: 90px solid #d4af37;
             position: absolute;
-            top: -100px;
+            top: -90px;
             left: 0;
             transform-origin: bottom;
             transition: transform 0.5s;
@@ -346,22 +375,45 @@
             transform: rotateX(180deg);
         }
         
+        .envelope-text {
+            color: var(--deep-red);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .envelope-instruction {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
         .invitation-text {
             max-width: 800px;
             margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.7;
             background: rgba(0, 0, 0, 0.4);
-            padding: 2rem;
+            padding: 1.8rem;
             border-radius: 10px;
             border-left: 3px solid var(--gold);
+            text-align: left;
+        }
+        
+        .invitation-text p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .invitation-text p:last-child {
+            margin-bottom: 0;
         }
         
         /* Confetti/Party Poppers */
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background-color: var(--gold);
             opacity: 0.7;
             border-radius: 50%;
@@ -379,34 +431,35 @@
         
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         
         .event-card {
             background: linear-gradient(135deg, rgba(139, 0, 0, 0.7), rgba(75, 0, 130, 0.7));
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 1.8rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--gold);
             transition: transform 0.3s ease;
         }
         
         .event-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
         }
         
         .event-icon {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             color: var(--gold);
         }
         
         .event-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             color: var(--gold);
+            line-height: 1.2;
         }
         
         .event-description {
@@ -422,14 +475,15 @@
         .countdown-container {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
         }
         
         .countdown-item {
             background: linear-gradient(135deg, var(--deep-red), var(--rich-purple));
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -442,31 +496,32 @@
         }
         
         .countdown-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: var(--gold);
         }
         
         .countdown-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
         }
         
         /* Closing Section */
         .closing {
             text-align: center;
-            padding: 6rem 0;
+            padding: 4rem 0;
         }
         
         .closing-title {
-            font-size: 3rem;
-            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
             color: var(--gold);
+            line-height: 1.2;
         }
         
         .closing-emoji {
-            font-size: 2rem;
-            margin: 0 0.5rem;
+            font-size: 1.8rem;
+            margin: 0 0.4rem;
             animation: pulse 1.5s infinite;
         }
         
@@ -477,32 +532,42 @@
         
         .footer {
             text-align: center;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             background: rgba(0, 0, 0, 0.5);
-            margin-top: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
         }
         
-        /* Responsive Design */
+        /* Responsive Design for Mobile */
         @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 1rem 0;
+            }
+            
+            section {
+                padding: 2rem 0;
+            }
+            
             .intro-title {
-                font-size: 3rem;
-            }
-            
-            .intro-subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .intro-invitation {
-                font-size: 1.2rem;
-                padding: 0 1rem;
-            }
-            
-            .main-title {
                 font-size: 2.5rem;
             }
             
-            .subtitle {
+            .intro-subtitle {
                 font-size: 1.3rem;
+            }
+            
+            .intro-invitation {
+                font-size: 1rem;
+                padding: 0 0.5rem;
+            }
+            
+            .main-title {
+                font-size: 2.3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
             }
             
             .tagline {
@@ -510,35 +575,42 @@
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
             }
             
             .film-card {
                 padding: 1.5rem;
             }
             
-            .countdown-container {
-                flex-wrap: wrap;
+            .detail-item {
+                font-size: 1rem;
+                justify-content: flex-start;
+                padding: 0 0.5rem;
+            }
+            
+            .detail-icon {
+                font-size: 1.6rem;
             }
             
             .countdown-item {
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
             }
             
             .countdown-number {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .closing-title {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
             
             .event-card {
                 padding: 1.5rem;
             }
             
-            .envelope {
+            .envelope-container {
                 width: 250px;
                 height: 170px;
             }
@@ -546,22 +618,32 @@
             .envelope-flap {
                 border-left: 125px solid transparent;
                 border-right: 125px solid transparent;
-                border-top: 85px solid #d4af37;
-                top: -85px;
+                border-top: 80px solid #d4af37;
+                top: -80px;
             }
             
             .dress-emoji {
                 font-size: 2rem;
             }
+            
+            .invitation-text {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .content-overlay {
+                padding: 1.2rem;
+                margin: 1rem 0;
+            }
         }
         
         @media (max-width: 480px) {
             .intro-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .intro-subtitle {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .main-title {
@@ -577,28 +659,36 @@
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
             .countdown-item {
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
             }
             
             .countdown-number {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
-            .envelope {
-                width: 200px;
-                height: 140px;
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+            
+            .envelope-container {
+                width: 220px;
+                height: 150px;
             }
             
             .envelope-flap {
-                border-left: 100px solid transparent;
-                border-right: 100px solid transparent;
+                border-left: 110px solid transparent;
+                border-right: 110px solid transparent;
                 border-top: 70px solid #d4af37;
                 top: -70px;
+            }
+            
+            .envelope-text {
+                font-size: 1rem;
             }
             
             .dress-emoji {
@@ -608,6 +698,80 @@
             .event-icon {
                 font-size: 2.5rem;
             }
+            
+            .event-title {
+                font-size: 1.3rem;
+            }
+            
+            .closing-title {
+                font-size: 1.7rem;
+            }
+            
+            .closing-emoji {
+                font-size: 1.6rem;
+            }
+            
+            .btn-know-more {
+                padding: 0.8rem 1.6rem;
+                font-size: 1rem;
+            }
+            
+            .invitation-icon {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .intro-title {
+                font-size: 2rem;
+            }
+            
+            .main-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .countdown-container {
+                gap: 0.7rem;
+            }
+            
+            .countdown-item {
+                width: 65px;
+                height: 65px;
+            }
+            
+            .envelope-container {
+                width: 200px;
+                height: 140px;
+            }
+            
+            .envelope-flap {
+                border-left: 100px solid transparent;
+                border-right: 100px solid transparent;
+                border-top: 65px solid #d4af37;
+                top: -65px;
+            }
+        }
+        
+        /* Prevent horizontal scrolling */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Improved text alignment for mobile */
+        .text-center-mobile {
+            text-align: center;
+        }
+        
+        /* Single line text where needed */
+        .single-line {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
 </head>
@@ -679,19 +843,26 @@
             </div>
         </section>
         
-        <!-- Invitation Section -->
+        <!-- Improved Invitation Section -->
         <section class="invitation container">
             <div class="content-overlay">
-                <h2 class="section-title">Your Blockbuster Invitation 🎟️</h2>
+                <div class="invitation-header">
+                    <span class="material-icons invitation-icon">mark_as_unread</span>
+                    <h2 class="section-title">Your Blockbuster Invitation</h2>
+                </div>
                 
-                <div class="envelope" id="envelope" onclick="flipEnvelope()">
-                    <div class="envelope-front">
-                        <div class="envelope-flap"></div>
-                        <h3 style="color: var(--deep-red);">Click to Open! 🎬</h3>
-                    </div>
-                    <div class="envelope-back">
-                        <p>You're invited to the biggest blockbuster event of the year! 🎉</p>
-                        <p>Prepare for an evening of entertainment, games, and fun! 🎊</p>
+                <div class="envelope-container">
+                    <div class="envelope" id="envelope" onclick="flipEnvelope()">
+                        <div class="envelope-front">
+                            <div class="envelope-flap"></div>
+                            <div class="envelope-text">Click to Open! 🎬</div>
+                            <div class="envelope-instruction">Tap the envelope</div>
+                        </div>
+                        <div class="envelope-back">
+                            <span class="material-icons" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem;">celebration</span>
+                            <p style="font-size: 1.1rem; font-weight: bold;">You're Invited!</p>
+                            <p style="font-size: 0.9rem;">To the biggest blockbuster event of the year! 🎉</p>
+                        </div>
                     </div>
                 </div>
                 
