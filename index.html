@@ -252,46 +252,60 @@
             flex-shrink: 0;
         }
         
-        /* Dress Code Section */
+        /* Improved Dress Code Section */
         .dress-code {
             text-align: center;
         }
         
-        .dress-code-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .dress-code-grid {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         
-        .dress-code-card {
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(75, 0, 130, 0.8));
+        .dress-code-item {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.7), rgba(75, 0, 130, 0.7));
             border-radius: 12px;
-            padding: 1.8rem;
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--gold);
-            position: relative;
-            overflow: hidden;
+            transition: transform 0.3s ease, opacity 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
         }
         
-        .dress-emoji-row {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            margin: 1.2rem 0;
-            flex-wrap: wrap;
+        .dress-code-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        .dress-emoji {
-            font-size: 2.2rem;
-            animation: bounce 2s infinite;
+        .dress-code-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
         }
         
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+        .dress-code-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+            line-height: 1.2;
+        }
+        
+        .dress-code-description {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .theme-text {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
         }
         
         /* Improved Invitation Section */
@@ -313,80 +327,73 @@
             color: var(--gold);
         }
         
-        .envelope-container {
-            perspective: 1000px;
+        .invitation-card {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(75, 0, 130, 0.8));
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
             margin: 0 auto 2rem;
-            width: 280px;
-            height: 190px;
-        }
-        
-        .envelope {
-            width: 100%;
-            height: 100%;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            border: 1px solid var(--gold);
             position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.8s;
+            overflow: hidden;
             cursor: pointer;
+            transition: all 0.5s ease;
         }
         
-        .envelope.flipped {
-            transform: rotateY(180deg);
+        .invitation-card-front, .invitation-card-back {
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         
-        .envelope-front, .envelope-back {
+        .invitation-card-back {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden;
-            border-radius: 10px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 1rem;
+            opacity: 0;
+            transform: scale(0.9);
         }
         
-        .envelope-front {
-            background: linear-gradient(135deg, #f5f5f5, #e6e6e6);
-            border: 2px solid var(--gold);
+        .invitation-card.flipped .invitation-card-front {
+            opacity: 0;
+            transform: scale(0.9);
         }
         
-        .envelope-back {
-            background: linear-gradient(135deg, var(--deep-red), var(--rich-purple));
-            transform: rotateY(180deg);
-            color: white;
+        .invitation-card.flipped .invitation-card-back {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .invitation-card-content {
             text-align: center;
         }
         
-        .envelope-flap {
-            width: 0;
-            height: 0;
-            border-left: 140px solid transparent;
-            border-right: 140px solid transparent;
-            border-top: 90px solid #d4af37;
-            position: absolute;
-            top: -90px;
-            left: 0;
-            transform-origin: bottom;
-            transition: transform 0.5s;
+        .invitation-card-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
         }
         
-        .envelope:hover .envelope-flap {
-            transform: rotateX(180deg);
+        .invitation-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
         }
         
-        .envelope-text {
-            color: var(--deep-red);
-            font-weight: 600;
-            font-size: 1.1rem;
-            text-align: center;
-            margin-top: 1.5rem;
+        .invitation-card-subtitle {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
         }
         
-        .envelope-instruction {
+        .invitation-card-instruction {
             font-size: 0.9rem;
-            color: #666;
-            margin-top: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 1rem;
         }
         
         .invitation-text {
@@ -443,6 +450,13 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--gold);
             transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .event-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .event-card:hover {
@@ -606,24 +620,28 @@
                 font-size: 1.9rem;
             }
             
-            .event-card {
+            .event-card, .dress-code-item {
                 padding: 1.5rem;
             }
             
-            .envelope-container {
-                width: 250px;
-                height: 170px;
+            .dress-code-icon, .event-icon {
+                font-size: 2.2rem;
             }
             
-            .envelope-flap {
-                border-left: 125px solid transparent;
-                border-right: 125px solid transparent;
-                border-top: 80px solid #d4af37;
-                top: -80px;
+            .dress-code-title, .event-title {
+                font-size: 1.2rem;
             }
             
-            .dress-emoji {
-                font-size: 2rem;
+            .invitation-card {
+                padding: 1.5rem;
+            }
+            
+            .invitation-card-icon {
+                font-size: 2.5rem;
+            }
+            
+            .invitation-card-title {
+                font-size: 1.3rem;
             }
             
             .invitation-text {
@@ -675,32 +693,16 @@
                 font-size: 0.7rem;
             }
             
-            .envelope-container {
-                width: 220px;
-                height: 150px;
-            }
-            
-            .envelope-flap {
-                border-left: 110px solid transparent;
-                border-right: 110px solid transparent;
-                border-top: 70px solid #d4af37;
-                top: -70px;
-            }
-            
-            .envelope-text {
-                font-size: 1rem;
-            }
-            
             .dress-emoji {
                 font-size: 1.8rem;
             }
             
-            .event-icon {
-                font-size: 2.5rem;
+            .event-icon, .dress-code-icon {
+                font-size: 2rem;
             }
             
-            .event-title {
-                font-size: 1.3rem;
+            .event-title, .dress-code-title {
+                font-size: 1.1rem;
             }
             
             .closing-title {
@@ -718,6 +720,22 @@
             
             .invitation-icon {
                 font-size: 2.2rem;
+            }
+            
+            .invitation-card {
+                padding: 1.2rem;
+            }
+            
+            .invitation-card-icon {
+                font-size: 2.2rem;
+            }
+            
+            .invitation-card-title {
+                font-size: 1.2rem;
+            }
+            
+            .invitation-card-subtitle {
+                font-size: 0.9rem;
             }
         }
         
@@ -743,16 +761,8 @@
                 height: 65px;
             }
             
-            .envelope-container {
-                width: 200px;
-                height: 140px;
-            }
-            
-            .envelope-flap {
-                border-left: 100px solid transparent;
-                border-right: 100px solid transparent;
-                border-top: 65px solid #d4af37;
-                top: -65px;
+            .dress-emoji {
+                font-size: 1.6rem;
             }
         }
         
@@ -767,11 +777,27 @@
             text-align: center;
         }
         
-        /* Single line text where needed */
-        .single-line {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        /* Animation for elements when they come into view */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -821,25 +847,33 @@
             </div>
         </section>
         
-        <!-- Dress Code Section -->
+        <!-- Improved Dress Code Section -->
         <section class="dress-code container">
             <div class="content-overlay">
                 <h2 class="section-title">Lights, Camera, Fashion! 👗👔</h2>
-                <div class="dress-code-card">
-                    <p>Get ready to slay like a <strong>South Indian cinema superstar</strong>! 🎬✨</p>
-                    
-                    <div class="dress-emoji-row">
-                        <span class="dress-emoji">👗</span>
-                        <span class="dress-emoji">👔</span>
-                        <span class="dress-emoji">💃</span>
-                        <span class="dress-emoji">🕺</span>
+                <p style="text-align: center; margin-bottom: 1.5rem;">Get ready to slay like a <strong>South Indian cinema superstar</strong>! 🎬✨</p>
+                
+                <div class="dress-code-grid">
+                    <div class="dress-code-item animate-on-scroll">
+                        <div class="dress-code-icon">👗</div>
+                        <h3 class="dress-code-title">For Ladies</h3>
+                        <p class="dress-code-description">Traditional silk sarees or elegant lehenga cholis that would make any leading lady jealous! 💖</p>
                     </div>
                     
-                    <p>For our ladies: Traditional silk sarees or elegant lehenga cholis that would make any leading lady jealous! 💖</p>
-                    <p>For our gentlemen: Dapper veshtis or stylish kurta-pyjamas that scream "superstar swag"! 🔥</p>
-                    <p>Don't forget your sunglasses for those obligatory hero entry moments! 😎</p>
-                    <p class="theme-text">Best dressed will get special recognition! 🏆</p>
+                    <div class="dress-code-item animate-on-scroll">
+                        <div class="dress-code-icon">👔</div>
+                        <h3 class="dress-code-title">For Gentlemen</h3>
+                        <p class="dress-code-description">Dapper veshtis or stylish kurta-pyjamas that scream "superstar swag"! 🔥</p>
+                    </div>
+                    
+                    <div class="dress-code-item animate-on-scroll">
+                        <div class="dress-code-icon">😎</div>
+                        <h3 class="dress-code-title">Accessories</h3>
+                        <p class="dress-code-description">Don't forget your sunglasses for those obligatory hero entry moments! 😎</p>
+                    </div>
                 </div>
+                
+                <p class="theme-text">Best dressed will get special recognition! 🏆</p>
             </div>
         </section>
         
@@ -851,17 +885,20 @@
                     <h2 class="section-title">Your Blockbuster Invitation</h2>
                 </div>
                 
-                <div class="envelope-container">
-                    <div class="envelope" id="envelope" onclick="flipEnvelope()">
-                        <div class="envelope-front">
-                            <div class="envelope-flap"></div>
-                            <div class="envelope-text">Click to Open! 🎬</div>
-                            <div class="envelope-instruction">Tap the envelope</div>
+                <div class="invitation-card" id="invitation-card">
+                    <div class="invitation-card-front">
+                        <div class="invitation-card-content">
+                            <span class="material-icons invitation-card-icon">mail</span>
+                            <h3 class="invitation-card-title">Your Invitation Awaits</h3>
+                            <p class="invitation-card-subtitle">Tap to reveal your special invitation</p>
+                            <p class="invitation-card-instruction">Click to Open! 🎬</p>
                         </div>
-                        <div class="envelope-back">
-                            <span class="material-icons" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem;">celebration</span>
-                            <p style="font-size: 1.1rem; font-weight: bold;">You're Invited!</p>
-                            <p style="font-size: 0.9rem;">To the biggest blockbuster event of the year! 🎉</p>
+                    </div>
+                    <div class="invitation-card-back">
+                        <div class="invitation-card-content">
+                            <span class="material-icons invitation-card-icon">celebration</span>
+                            <h3 class="invitation-card-title">You're Invited!</h3>
+                            <p class="invitation-card-subtitle">To the biggest blockbuster event of the year! 🎉</p>
                         </div>
                     </div>
                 </div>
@@ -881,17 +918,17 @@
             <div class="content-overlay">
                 <h2 class="section-title">Event Highlights 🎊</h2>
                 <div class="events-grid">
-                    <div class="event-card">
+                    <div class="event-card animate-on-scroll">
                         <div class="event-icon">🎮</div>
                         <h3 class="event-title">Fun Games Arena</h3>
                         <p class="event-description">Participate in thrilling games organized by your seniors. Test your skills, teamwork, and creativity. Exciting prizes await the champions! 🏆</p>
                     </div>
-                    <div class="event-card">
+                    <div class="event-card animate-on-scroll">
                         <div class="event-icon">💃</div>
                         <h3 class="event-title">Dance Extravaganza</h3>
                         <p class="event-description">Enjoy spectacular dance performances by your seniors. From classical to contemporary, prepare to be amazed! ✨</p>
                     </div>
-                    <div class="event-card">
+                    <div class="event-card animate-on-scroll">
                         <div class="event-icon">🎭</div>
                         <h3 class="event-title">Senior Performances</h3>
                         <p class="event-description">Watch your seniors showcase their talents in singing, comedy, and acting. Get ready to be entertained! 🎤</p>
@@ -954,6 +991,9 @@
                 setTimeout(function() {
                     document.getElementById('intro').style.display = 'none';
                     document.querySelector('.main-content').style.display = 'block';
+                    
+                    // Initialize animations after content is visible
+                    setTimeout(initAnimations, 100);
                 }, 1000);
             }, 3000);
         });
@@ -965,22 +1005,30 @@
             });
         }
         
-        // Envelope flip function with confetti
-        function flipEnvelope() {
-            const envelope = document.getElementById('envelope');
-            envelope.classList.toggle('flipped');
+        // Invitation card flip function with confetti
+        function flipInvitationCard() {
+            const card = document.getElementById('invitation-card');
+            card.classList.toggle('flipped');
             
-            if (envelope.classList.contains('flipped')) {
+            if (card.classList.contains('flipped')) {
                 createConfetti();
             }
         }
+        
+        // Add click event to invitation card
+        document.addEventListener('DOMContentLoaded', function() {
+            const invitationCard = document.getElementById('invitation-card');
+            if (invitationCard) {
+                invitationCard.addEventListener('click', flipInvitationCard);
+            }
+        });
         
         // Create confetti/party poppers effect
         function createConfetti() {
             const invitationSection = document.querySelector('.invitation');
             const colors = ['#FFD700', '#8B0000', '#4B0082', '#008080', '#FFFFFF'];
             
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 30; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + 'vw';
@@ -990,7 +1038,9 @@
                 
                 // Remove confetti after animation completes
                 setTimeout(() => {
-                    confetti.remove();
+                    if (confetti.parentNode) {
+                        confetti.parentNode.removeChild(confetti);
+                    }
                 }, 5000);
             }
         }
@@ -1025,6 +1075,25 @@
                         '<h3>The event has concluded! Thank you for attending! 🎉</h3>';
                 }
             }, 1000);
+        }
+        
+        // Initialize animations when elements come into view
+        function initAnimations() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
         }
         
         // Initialize countdown when page loads
