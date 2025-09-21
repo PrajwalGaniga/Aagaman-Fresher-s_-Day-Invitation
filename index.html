@@ -237,43 +237,52 @@
             color: var(--gold);
         }
         
-        /* Theme Highlight Section */
-        .theme-highlight {
+        /* Dress Code Section */
+        .dress-code {
             text-align: center;
         }
         
-        .theme-content {
+        .dress-code-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 2rem;
         }
         
-        .theme-text {
-            font-size: 1.3rem;
-            max-width: 800px;
-            line-height: 1.8;
-            background: rgba(0, 0, 0, 0.4);
+        .dress-code-card {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(75, 0, 130, 0.8));
+            border-radius: 15px;
             padding: 2rem;
-            border-radius: 10px;
-            border-left: 3px solid var(--gold);
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            border: 1px solid var(--gold);
+            position: relative;
+            overflow: hidden;
         }
         
-        .dancing-emoji {
-            font-size: 4rem;
-            animation: dance 2s infinite;
+        .dress-emoji-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
         }
         
-        @keyframes dance {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(-10deg) scale(1.1); }
-            50% { transform: rotate(0deg) scale(1.2); }
-            75% { transform: rotate(10deg) scale(1.1); }
+        .dress-emoji {
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
         
         /* Invitation Section */
         .invitation {
             text-align: center;
+            position: relative;
         }
         
         .envelope {
@@ -346,6 +355,21 @@
             padding: 2rem;
             border-radius: 10px;
             border-left: 3px solid var(--gold);
+        }
+        
+        /* Confetti/Party Poppers */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--gold);
+            opacity: 0.7;
+            border-radius: 50%;
+        }
+        
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
         
         /* Events Section */
@@ -513,6 +537,77 @@
             .event-card {
                 padding: 1.5rem;
             }
+            
+            .envelope {
+                width: 250px;
+                height: 170px;
+            }
+            
+            .envelope-flap {
+                border-left: 125px solid transparent;
+                border-right: 125px solid transparent;
+                border-top: 85px solid #d4af37;
+                top: -85px;
+            }
+            
+            .dress-emoji {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .intro-title {
+                font-size: 2.5rem;
+            }
+            
+            .intro-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .tagline {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .countdown-item {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+            
+            .envelope {
+                width: 200px;
+                height: 140px;
+            }
+            
+            .envelope-flap {
+                border-left: 100px solid transparent;
+                border-right: 100px solid transparent;
+                border-top: 70px solid #d4af37;
+                top: -70px;
+            }
+            
+            .dress-emoji {
+                font-size: 1.8rem;
+            }
+            
+            .event-icon {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -522,11 +617,11 @@
         <div>
             <h1 class="intro-title">Aagaman</h1>
             <p class="intro-subtitle">The New Beginning</p>
-            <p class="intro-invitation">Join us for an unforgettable evening of dances, games, and entertainment organized by your seniors!</p>
+            <p class="intro-invitation">Join us for an unforgettable evening of dances, games, and entertainment organized by your seniors! 🎬✨🎉</p>
         </div>
     </div>
     
-    <!-- Spline Background -->
+    <!-- Spline Background - Using a reliable URL -->
     <spline-viewer id="spline-background" url="https://prod.spline.design/lqp0-xrwkm68g6V9/scene.splinecode"></spline-viewer>
     
     <!-- Main Content -->
@@ -536,7 +631,7 @@
             <div class="hero-content content-overlay">
                 <h1 class="main-title">Aagaman</h1>
                 <p class="subtitle">The New Beginning - Freshers Day</p>
-                <p class="tagline">"Filmy Vibes, Fresh Starts!"</p>
+                <p class="tagline">"Filmy Vibes, Fresh Starts!" 🎥✨</p>
                 <button class="btn-know-more" onclick="scrollToSection('event-details')">Know More ↓</button>
             </div>
         </section>
@@ -544,7 +639,7 @@
         <!-- Event Details Section -->
         <section id="event-details" class="event-details container">
             <div class="content-overlay">
-                <h2 class="section-title">Event Details</h2>
+                <h2 class="section-title">Event Details 🎭</h2>
                 <div class="film-card">
                     <div class="detail-item">
                         <span class="detail-icon">📅</span>
@@ -562,26 +657,50 @@
             </div>
         </section>
         
+        <!-- Dress Code Section -->
+        <section class="dress-code container">
+            <div class="content-overlay">
+                <h2 class="section-title">Lights, Camera, Fashion! 👗👔</h2>
+                <div class="dress-code-card">
+                    <p>Get ready to slay like a <strong>South Indian cinema superstar</strong>! 🎬✨</p>
+                    
+                    <div class="dress-emoji-row">
+                        <span class="dress-emoji">👗</span>
+                        <span class="dress-emoji">👔</span>
+                        <span class="dress-emoji">💃</span>
+                        <span class="dress-emoji">🕺</span>
+                    </div>
+                    
+                    <p>For our ladies: Traditional silk sarees or elegant lehenga cholis that would make any leading lady jealous! 💖</p>
+                    <p>For our gentlemen: Dapper veshtis or stylish kurta-pyjamas that scream "superstar swag"! 🔥</p>
+                    <p>Don't forget your sunglasses for those obligatory hero entry moments! 😎</p>
+                    <p class="theme-text">Best dressed will get special recognition! 🏆</p>
+                </div>
+            </div>
+        </section>
+        
         <!-- Invitation Section -->
         <section class="invitation container">
             <div class="content-overlay">
-                <h2 class="section-title">Your Special Invitation</h2>
+                <h2 class="section-title">Your Blockbuster Invitation 🎟️</h2>
                 
                 <div class="envelope" id="envelope" onclick="flipEnvelope()">
                     <div class="envelope-front">
                         <div class="envelope-flap"></div>
-                        <h3 style="color: var(--deep-red);">Click to Open</h3>
+                        <h3 style="color: var(--deep-red);">Click to Open! 🎬</h3>
                     </div>
                     <div class="envelope-back">
-                        <p>You're invited to enjoy performances by your seniors and participate in fun games!</p>
+                        <p>You're invited to the biggest blockbuster event of the year! 🎉</p>
+                        <p>Prepare for an evening of entertainment, games, and fun! 🎊</p>
                     </div>
                 </div>
                 
                 <div class="invitation-text">
-                    <p>Dear Freshers,</p>
-                    <p>We are thrilled to invite you to <strong>Aagaman: The New Beginning</strong>! This is your special welcome event organized by your seniors.</p>
-                    <p>Get ready to be entertained with dazzling dance performances, enjoy fun games where you can participate and win prizes, and create unforgettable memories with your new college family.</p>
-                    <p>Your role is to enjoy, cheer, and participate in the games we've prepared for you. Let's make this an evening to remember!</p>
+                    <p>Dear Freshers! 🎓✨</p>
+                    <p>Lights, camera, and tons of action await you at <strong>Aagaman: The New Beginning</strong>! This is your special red carpet welcome event organized by your seniors. 🎥</p>
+                    <p>Get ready to be entertained with dazzling dance performances that would put any item number to shame! 💃 Enjoy fun games where you can participate and win awesome prizes! 🎁</p>
+                    <p>Your role is simple: bring your best energy, cheer like it's a Rajinikanth movie climax, and participate in the games we've prepared for you! 🎯</p>
+                    <p>Let's make this an evening that even S.S. Rajamouli would be proud of! 🎬</p>
                 </div>
             </div>
         </section>
@@ -589,22 +708,22 @@
         <!-- Events Section -->
         <section class="events container">
             <div class="content-overlay">
-                <h2 class="section-title">Event Highlights</h2>
+                <h2 class="section-title">Event Highlights 🎊</h2>
                 <div class="events-grid">
                     <div class="event-card">
                         <div class="event-icon">🎮</div>
                         <h3 class="event-title">Fun Games Arena</h3>
-                        <p class="event-description">Participate in thrilling games organized by your seniors. Test your skills, teamwork, and creativity. Exciting prizes await the champions!</p>
+                        <p class="event-description">Participate in thrilling games organized by your seniors. Test your skills, teamwork, and creativity. Exciting prizes await the champions! 🏆</p>
                     </div>
                     <div class="event-card">
                         <div class="event-icon">💃</div>
                         <h3 class="event-title">Dance Extravaganza</h3>
-                        <p class="event-description">Enjoy spectacular dance performances by your seniors. From classical to contemporary, prepare to be amazed!</p>
+                        <p class="event-description">Enjoy spectacular dance performances by your seniors. From classical to contemporary, prepare to be amazed! ✨</p>
                     </div>
                     <div class="event-card">
                         <div class="event-icon">🎭</div>
                         <h3 class="event-title">Senior Performances</h3>
-                        <p class="event-description">Watch your seniors showcase their talents in singing, comedy, and acting. Get ready to be entertained!</p>
+                        <p class="event-description">Watch your seniors showcase their talents in singing, comedy, and acting. Get ready to be entertained! 🎤</p>
                     </div>
                 </div>
             </div>
@@ -613,7 +732,7 @@
         <!-- Countdown Timer -->
         <section class="countdown container">
             <div class="content-overlay">
-                <h2 class="section-title">Countdown to the Event</h2>
+                <h2 class="section-title">Countdown to the Blockbuster Event ⏳</h2>
                 
                 <div class="countdown-container">
                     <div class="countdown-item">
@@ -644,7 +763,7 @@
                     Camera <span class="closing-emoji">🎬</span> 
                     Action <span class="closing-emoji">🎉</span>
                 </h2>
-                <p class="subtitle">See You at Aagaman!</p>
+                <p class="subtitle">See You at Aagaman! Don't forget to dress like the star you are! 🌟</p>
             </div>
         </section>
         
@@ -665,7 +784,7 @@
                     document.getElementById('intro').style.display = 'none';
                     document.querySelector('.main-content').style.display = 'block';
                 }, 1000);
-            }, 3000); // Reduced to 3 seconds
+            }, 3000);
         });
         
         // Smooth scroll function
@@ -675,9 +794,34 @@
             });
         }
         
-        // Envelope flip function
+        // Envelope flip function with confetti
         function flipEnvelope() {
-            document.getElementById('envelope').classList.toggle('flipped');
+            const envelope = document.getElementById('envelope');
+            envelope.classList.toggle('flipped');
+            
+            if (envelope.classList.contains('flipped')) {
+                createConfetti();
+            }
+        }
+        
+        // Create confetti/party poppers effect
+        function createConfetti() {
+            const invitationSection = document.querySelector('.invitation');
+            const colors = ['#FFD700', '#8B0000', '#4B0082', '#008080', '#FFFFFF'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = `confetti-fall ${Math.random() * 3 + 2}s linear forwards`;
+                invitationSection.appendChild(confetti);
+                
+                // Remove confetti after animation completes
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
         }
         
         // Countdown timer
@@ -707,7 +851,7 @@
                 } else {
                     // Event has passed
                     document.querySelector('.countdown-container').innerHTML = 
-                        '<h3>The event has concluded! Thank you for attending!</h3>';
+                        '<h3>The event has concluded! Thank you for attending! 🎉</h3>';
                 }
             }, 1000);
         }
